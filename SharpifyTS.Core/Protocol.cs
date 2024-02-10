@@ -134,65 +134,65 @@ public interface IProjectReference
 
 public readonly struct CompilerOptionsValue
 {
-    private readonly object _value;
+    public readonly object Value;
 
     private CompilerOptionsValue(string value)
     {
-        _value = value;
+        Value = value;
     }
 
     private CompilerOptionsValue(int value)
     {
-        _value = value;
+        Value = value;
     }
 
     private CompilerOptionsValue(bool value)
     {
-        _value = value;
+        Value = value;
     }
 
     private CompilerOptionsValue(IEnumerable<string> value)
     {
-        _value = value;
+        Value = value;
     }
 
     private CompilerOptionsValue(IEnumerable<int> value)
     {
-        _value = value;
+        Value = value;
     }
 
     // 隐式转换，允许从 CompilerOptionsValue 到其基础类型的隐式转换
     public static implicit operator string(CompilerOptionsValue value)
     {
-        if (value._value is string valueValue)
+        if (value.Value is string valueValue)
             return valueValue;
         throw new InvalidCastException();
     }
 
     public static implicit operator int(CompilerOptionsValue value)
     {
-        if (value._value is int valueValue)
+        if (value.Value is int valueValue)
             return valueValue;
         throw new InvalidCastException();
     }
 
     public static implicit operator bool(CompilerOptionsValue value)
     {
-        if (value._value is bool valueValue)
+        if (value.Value is bool valueValue)
             return valueValue;
         throw new InvalidCastException();
     }
 
     public static implicit operator string[](CompilerOptionsValue value)
     {
-        if (value._value is string[] valueValue)
+        if (value.Value is string[] valueValue)
             return valueValue;
         throw new InvalidCastException();
     }
 
     public static implicit operator int[](CompilerOptionsValue value)
     {
-        if (value._value is int[] valueValue)
+        if (value.Value is int[] valueValue)
             return valueValue;
         throw new InvalidCastException();
     }
