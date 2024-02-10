@@ -46,13 +46,13 @@ public interface ICompilerOptions
     public string Out { get; set; }
     public string OutDir { get; set; }
     public string OutFile { get; set; }
-    public Dictionary<string, string[]> Paths { get; set; }
+    public Dictionary<string, IEnumerable<string>> Paths { get; set; }
     public bool? PreserveConstEnums { get; set; }
     public bool? PreserveSymlinks { get; set; }
     public string Project { get; set; }
     public string ReactNamespace { get; set; }
     public bool? RemoveComments { get; set; }
-    public IEnumerable<ProjectReference> References { get; set; }
+    public IEnumerable<IProjectReference> References { get; set; }
     public string RootDir { get; set; }
     public IEnumerable<string> RootDirs { get; set; }
     public bool? SkipLibCheck { get; set; }
@@ -124,7 +124,7 @@ public enum ScriptTarget
     ESNext
 }
 
-public interface ProjectReference
+public interface IProjectReference
 {
     public string Path { get; set; }
     public string OriginalPath { get; set; }
