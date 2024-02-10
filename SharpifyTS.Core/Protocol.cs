@@ -1,17 +1,35 @@
 namespace SharpifyTS;
 
-public interface ICompilerOptions
+public abstract class CompilerOptions(
+    string baseUrl,
+    string charset,
+    string declarationDir,
+    List<string> lib,
+    string locale,
+    string mapRoot,
+    string @out,
+    string outDir,
+    string outFile,
+    IDictionary<string, IEnumerable<string>> paths,
+    string project,
+    string reactNamespace,
+    IEnumerable<IProjectReference> references,
+    string rootDir,
+    IEnumerable<string> rootDirs,
+    string sourceRoot,
+    IEnumerable<string> types,
+    IEnumerable<string> typeRoots)
 {
     public bool? AllowJs { get; set; }
     public bool? AllowSyntheticDefaultImports { get; set; }
     public bool? AllowUnreachableCode { get; set; }
     public bool? AllowUnusedLabels { get; set; }
     public bool? AlwaysStrict { get; set; }
-    public string BaseUrl { get; set; }
-    public string Charset { get; set; }
+    public string BaseUrl { get; set; } = baseUrl;
+    public string Charset { get; set; } = charset;
     public bool? CheckJs { get; set; }
     public bool? Declaration { get; set; }
-    public string DeclarationDir { get; set; }
+    public string DeclarationDir { get; set; } = declarationDir;
     public bool? DisableSizeLimit { get; set; }
     public bool? DownlevelIteration { get; set; }
     public bool? EmitBOM { get; set; }
@@ -23,9 +41,9 @@ public interface ICompilerOptions
     public bool? InlineSources { get; set; }
     public bool? IsolatedModules { get; set; }
     public JsxEmit? Jsx { get; set; }
-    public List<string> Lib { get; set; }
-    public string Locale { get; set; }
-    public string MapRoot { get; set; }
+    public List<string> Lib { get; set; } = lib;
+    public string Locale { get; set; } = locale;
+    public string MapRoot { get; set; } = mapRoot;
     public int? MaxNodeModuleJsDepth { get; set; }
     public ModuleKind? Module { get; set; }
     public ModuleResolutionKind? ModuleResolution { get; set; }
@@ -43,22 +61,22 @@ public interface ICompilerOptions
     public bool? NoImplicitUseStrict { get; set; }
     public bool? NoLib { get; set; }
     public bool? NoResolve { get; set; }
-    public string Out { get; set; }
-    public string OutDir { get; set; }
-    public string OutFile { get; set; }
-    public Dictionary<string, IEnumerable<string>> Paths { get; set; }
+    public string Out { get; set; } = @out;
+    public string OutDir { get; set; } = outDir;
+    public string OutFile { get; set; } = outFile;
+    public IDictionary<string, IEnumerable<string>> Paths { get; set; } = paths;
     public bool? PreserveConstEnums { get; set; }
     public bool? PreserveSymlinks { get; set; }
-    public string Project { get; set; }
-    public string ReactNamespace { get; set; }
+    public string Project { get; set; } = project;
+    public string ReactNamespace { get; set; } = reactNamespace;
     public bool? RemoveComments { get; set; }
-    public IEnumerable<IProjectReference> References { get; set; }
-    public string RootDir { get; set; }
-    public IEnumerable<string> RootDirs { get; set; }
+    public IEnumerable<IProjectReference> References { get; set; } = references;
+    public string RootDir { get; set; } = rootDir;
+    public IEnumerable<string> RootDirs { get; set; } = rootDirs;
     public bool? SkipLibCheck { get; set; }
     public bool? SkipDefaultLibCheck { get; set; }
     public bool? SourceMap { get; set; }
-    public string SourceRoot { get; set; }
+    public string SourceRoot { get; set; } = sourceRoot;
     public bool? Strict { get; set; }
     public bool? StrictNullChecks { get; set; }
     public bool? SuppressExcessPropertyErrors { get; set; }
@@ -67,9 +85,9 @@ public interface ICompilerOptions
     public ScriptTarget? Target { get; set; }
     public bool? TraceResolution { get; set; }
     public bool? ResolveJsonModule { get; set; }
-    public IEnumerable<string> Types { get; set; }
-    public IEnumerable<string> TypeRoots { get; set; }
-    public CompilerOptionsValue this[string option] { get; set; }
+    public IEnumerable<string> Types { get; set; } = types;
+    public IEnumerable<string> TypeRoots { get; set; } = typeRoots;
+    public abstract CompilerOptionsValue this[string option] { get; set; }
 }
 
 public enum JsxEmit

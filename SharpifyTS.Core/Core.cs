@@ -2,7 +2,7 @@ namespace SharpifyTS;
 
 public struct TranspileOptions
 {
-    public ICompilerOptions? CompilerOptions { get; set; }
+    public CompilerOptions? CompilerOptions { get; set; }
     public string? FileName { get; set; }
 }
 
@@ -16,6 +16,7 @@ public static class Core
 {
     public static TranspileOutput Transpile(string input, TranspileOptions options)
     {
+        var c = new {};
         return default;
     }
 }
