@@ -1,3 +1,4 @@
+
 namespace SharpifyTS.Tests;
 
 public class Tests
@@ -18,6 +19,7 @@ public class Tests
             Assert.That(a, Is.EqualTo(1));
             Assert.That(b.Value is string);
         });
+        
         Assert.Pass();
     }
 }

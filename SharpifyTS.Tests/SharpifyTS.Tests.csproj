@@ -18,7 +18,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SharpifyTS.Core\SharpifyTS.Core.csproj" />
+      <ProjectReference Include="../SharpifyTS.Core/SharpifyTS.Core.csproj" />
+      <ProjectReference Include="../SharpifyTS.Generators/SharpifyTS.Generators.csproj"/>
     </ItemGroup>
 
 </Project>

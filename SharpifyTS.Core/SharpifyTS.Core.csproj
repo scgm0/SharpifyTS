@@ -8,4 +8,8 @@
         <RootNamespace>SharpifyTS</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="../SharpifyTS.Generators/SharpifyTS.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+
 </Project>
