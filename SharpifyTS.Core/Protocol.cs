@@ -151,4 +151,4 @@ public interface IProjectReference
 }
 
 [TSUnion(typeof(string), typeof(int), typeof(bool), typeof(string[]), typeof(int[]))]
-public readonly partial struct CompilerOptionsValue;
+public partial struct CompilerOptionsValue;
