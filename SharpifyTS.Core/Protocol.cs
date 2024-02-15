@@ -1,6 +1,6 @@
 namespace SharpifyTS;
 
-public abstract class CompilerOptions(
+public class CompilerOptions(
     string baseUrl,
     string charset,
     string declarationDir,
@@ -13,7 +13,7 @@ public abstract class CompilerOptions(
     IDictionary<string, IEnumerable<string>> paths,
     string project,
     string reactNamespace,
-    IEnumerable<IProjectReference> references,
+    IEnumerable<ProjectReference> references,
     string rootDir,
     IEnumerable<string> rootDirs,
     string sourceRoot,
@@ -70,7 +70,7 @@ public abstract class CompilerOptions(
     public string Project { get; set; } = project;
     public string ReactNamespace { get; set; } = reactNamespace;
     public bool? RemoveComments { get; set; }
-    public IEnumerable<IProjectReference> References { get; set; } = references;
+    public IEnumerable<ProjectReference> References { get; set; } = references;
     public string RootDir { get; set; } = rootDir;
     public IEnumerable<string> RootDirs { get; set; } = rootDirs;
     public bool? SkipLibCheck { get; set; }
@@ -87,7 +87,11 @@ public abstract class CompilerOptions(
     public bool? ResolveJsonModule { get; set; }
     public IEnumerable<string> Types { get; set; } = types;
     public IEnumerable<string> TypeRoots { get; set; } = typeRoots;
-    public abstract CompilerOptionsValue this[string option] { get; set; }
+    public virtual CompilerOptionsValue this[string option]
+    {
+        get => throw new NotImplementedException();
+        set => throw new NotImplementedException();
+    }
 }
 
 public enum JsxEmit
@@ -139,13 +143,15 @@ public enum ScriptTarget
     ES2018,
     ES2019,
     ES2020,
+    ES2021,
+    ES2022,
     ESNext
 }
 
-public interface IProjectReference
+public class ProjectReference(string path, string originalPath)
 {
-    public string Path { get; set; }
-    public string OriginalPath { get; set; }
+    public string Path { get; set; } = path;
+    public string OriginalPath { get; set; } = originalPath;
     public bool? Prepend { get; set; }
     public bool? Circular { get; set; }
 }
